@@ -329,7 +329,7 @@
         <!--Categories-->
         <scene sceneID="4r3-Gm-80s">
             <objects>
-                <tableViewController id="R2V-PW-f37" sceneMemberID="viewController">
+                <tableViewController id="R2V-PW-f37" customClass="CategoriesTableViewController" customModule="MoviesLib" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="juf-JC-DpQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,7 +364,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Categories" id="S2H-Xv-adO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Rz-gQ-bFd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Rz-gQ-bFd">
+                            <connections>
+                                <action selector="add:" destination="R2V-PW-f37" id="Igz-4A-icb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ky-Ol-lci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

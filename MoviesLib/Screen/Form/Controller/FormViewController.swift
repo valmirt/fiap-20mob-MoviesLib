@@ -52,6 +52,14 @@ final class FormViewController: UIViewController {
     }
     
     // MARK: - Methods
+    private func selectPictureFrom(_ sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = sourceType
+        imagePickerController.delegate = self
+        
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
     private func setupView() {
         if let movie = movie {
             title = "Editing Movie"
@@ -60,10 +68,7 @@ final class FormViewController: UIViewController {
             tvSummary.text = movie.summary
             tfRating.text = "\(movie.rating)"
             btConclude.setTitle("Update", for: .normal)
-            
-            if let data = movie.image {
-                ivPoster.image = UIImage(data: data)
-            }
+            ivPoster.image = movie.posterImage
         }
     }
     
@@ -89,6 +94,34 @@ final class FormViewController: UIViewController {
     }
     
     @IBAction func selectImage(_ sender: UIButton) {
+        let alert = UIAlertController(
+            title: "Select image poster",
+            message: "Where do you want to choose the image?",
+            preferredStyle: .alert
+        )
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
+                self.selectPictureFrom(.camera)
+            }
+            alert.addAction(cameraAction)
+        }
+        
+        let libraryAction = UIAlertAction(title: "Photo library", style: .default) { (_) in
+            self.selectPictureFrom(.photoLibrary)
+        }
+        alert.addAction(libraryAction)
+        
+        let photosAction = UIAlertAction(title: "Photo Album", style: .default) { (_) in
+            self.selectPictureFrom(.savedPhotosAlbum)
+        }
+        alert.addAction(photosAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancele", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func save(_ sender: UIButton) {
@@ -109,6 +142,17 @@ final class FormViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+}
+
+extension FormViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.originalImage] as? UIImage {
+            ivPoster.image = image
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }
 

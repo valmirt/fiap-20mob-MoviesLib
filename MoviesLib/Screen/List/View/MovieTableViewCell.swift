@@ -21,5 +21,6 @@ final class MovieTableViewCell: UITableViewCell {
         labelTitle.text = movie.title
 //        labelCategories.text = movie.categories
         labelRating.text = movie.ratingFormatted
+        ivPoster.image = movie.posterImage
     }
 }

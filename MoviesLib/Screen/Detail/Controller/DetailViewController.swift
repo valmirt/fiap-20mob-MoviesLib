@@ -38,6 +38,7 @@ final class DetailViewController: UIViewController {
 //        labelCategories.text = movie.categories
         labelRating.text = movie.ratingFormatted
         tvSinopse.text = movie.summary
+        ivPoster.image = movie.posterImage
     }
     
     // MARK: - IBActions
