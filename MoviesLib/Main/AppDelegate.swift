@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,5 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    //MARK: - CoreData Stack
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "MoviesLib")
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                //Handler error
+                print(error)
+            }
+        }
+        
+        return container
+    }()
 }
 

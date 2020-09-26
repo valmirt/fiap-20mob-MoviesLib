@@ -33,14 +33,20 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Methods
     private func setupView() {
-        ivPoster.image = UIImage(named: movie.image ?? "placeholder")
         labelTitle.text = movie.title
         labelTime.text = movie.duration
-        labelCategories.text = movie.categories
+//        labelCategories.text = movie.categories
         labelRating.text = movie.ratingFormatted
         tvSinopse.text = movie.summary
     }
     
     // MARK: - IBActions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRegisterMovie" {
+            if let detail = segue.destination as? FormViewController {
+                detail.movie = movie
+            }
+        }
+    }
     
 }

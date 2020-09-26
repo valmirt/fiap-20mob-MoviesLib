@@ -18,9 +18,8 @@ final class MovieTableViewCell: UITableViewCell {
 
     //MARK: - Methods
     func fill(data movie: Movie) {
-        ivPoster.image = UIImage(named: movie.image ?? "placeholder")
         labelTitle.text = movie.title
-        labelCategories.text = movie.categories
+//        labelCategories.text = movie.categories
         labelRating.text = movie.ratingFormatted
     }
 }

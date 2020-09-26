@@ -9,10 +9,10 @@ import Foundation
 
 extension Movie {
     var ratingFormatted: String {
-        if (rating ?? 0) > 5 {
-            return "⭐️ \(rating ?? 0)/10"
+        if (rating ) > 5 {
+            return "⭐️ \(rating )/10"
         } else {
-            return "💩 \(rating ?? 0)/10"
+            return "💩 \(rating )/10"
         }
     }
 }
