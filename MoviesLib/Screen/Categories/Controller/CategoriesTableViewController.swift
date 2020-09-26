@@ -20,7 +20,9 @@ final class CategoriesTableViewController: UITableViewController {
         didSet { delegate?.setSelection(categories: selectedCategories) }
     }
     private var categories: [Category] = []
+    
     // MARK: - IBOutlets
+    
     
     // MARK: - Super Methods
     override func viewDidLoad() {
@@ -156,4 +158,3 @@ final class CategoriesTableViewController: UITableViewController {
     }
     
 }
-

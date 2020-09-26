@@ -12,6 +12,7 @@
 		C362E0C5251D7A9E0093FF05 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E0C4251D7A9E0093FF05 /* MovieTableViewCell.swift */; };
 		C362E0D1251D87150093FF05 /* MovieExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C362E0D0251D87150093FF05 /* MovieExtension.swift */; };
 		C366AE45251FB11C0061542C /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366AE44251FB11C0061542C /* CategoriesTableViewController.swift */; };
+		C366AE4B251FCA900061542C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366AE4A251FCA900061542C /* MapViewController.swift */; };
 		C3CD216E251F63A900CB62A6 /* MoviesLib.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3CD216C251F63A900CB62A6 /* MoviesLib.xcdatamodeld */; };
 		C3CD2173251F83F400CB62A6 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CD2172251F83F400CB62A6 /* FormViewController.swift */; };
 		C3DD24F7251AB35000C00102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DD24F6251AB35000C00102 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		C362E0C4251D7A9E0093FF05 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		C362E0D0251D87150093FF05 /* MovieExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieExtension.swift; sourceTree = "<group>"; };
 		C366AE44251FB11C0061542C /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		C366AE4A251FCA900061542C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C3CD216D251F63A900CB62A6 /* MoviesLib.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesLib.xcdatamodel; sourceTree = "<group>"; };
 		C3CD2172251F83F400CB62A6 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		C3DD24F3251AB35000C00102 /* MoviesLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 		C362E0CB251D7F530093FF05 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				C366AE48251FCA740061542C /* Map */,
 				C366AE42251FB0FB0061542C /* Categories */,
 				C3CD2170251F83A500CB62A6 /* Form */,
 				C362E0BD251D71690093FF05 /* List */,
@@ -148,6 +151,22 @@
 			isa = PBXGroup;
 			children = (
 				C366AE44251FB11C0061542C /* CategoriesTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C366AE48251FCA740061542C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C366AE49251FCA850061542C /* Controller */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		C366AE49251FCA850061542C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C366AE4A251FCA900061542C /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,6 +291,7 @@
 				C362E0C5251D7A9E0093FF05 /* MovieTableViewCell.swift in Sources */,
 				C362E0C0251D71C10093FF05 /* MoviesTableViewController.swift in Sources */,
 				C362E0D1251D87150093FF05 /* MovieExtension.swift in Sources */,
+				C366AE4B251FCA900061542C /* MapViewController.swift in Sources */,
 				C3DD24FB251AB35000C00102 /* DetailViewController.swift in Sources */,
 				C366AE45251FB11C0061542C /* CategoriesTableViewController.swift in Sources */,
 				C3DD24F7251AB35000C00102 /* AppDelegate.swift in Sources */,
