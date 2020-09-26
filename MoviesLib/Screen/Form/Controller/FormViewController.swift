@@ -11,6 +11,18 @@ final class FormViewController: UIViewController {
     
     // MARK: - Properties
     var movie: Movie?
+    var selectedCategories: Set<Category> = [] {
+        didSet {
+            if selectedCategories.count > 0 {
+                labelCategories.text = selectedCategories
+                    .compactMap({ $0.name })
+                    .sorted()
+                    .joined(separator: " | ")
+            } else {
+                labelCategories.text = "Categories"
+            }
+        }
+    }
     
     // MARK: - IBOutlets
     @IBOutlet weak var tfTitle: UITextField!
@@ -51,6 +63,12 @@ final class FormViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let categoriesVC = segue.destination as? CategoriesTableViewController {
+            categoriesVC.delegate = self
+        }
+    }
+    
     // MARK: - Methods
     private func selectPictureFrom(_ sourceType: UIImagePickerController.SourceType) {
         let imagePickerController = UIImagePickerController()
@@ -62,13 +80,16 @@ final class FormViewController: UIViewController {
     
     private func setupView() {
         if let movie = movie {
-            title = "Editing Movie"
+            title = "Update Movie"
             tfTitle.text = movie.title
             tfDuration.text = movie.duration
             tvSummary.text = movie.summary
             tfRating.text = "\(movie.rating)"
             btConclude.setTitle("Update", for: .normal)
             ivPoster.image = movie.posterImage
+            if let categories = movie.categories as? Set<Category>, categories.count > 0 {
+                selectedCategories = categories
+            }
         }
     }
     
@@ -90,9 +111,6 @@ final class FormViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func selectCategories(_ sender: UIButton) {
-    }
-    
     @IBAction func selectImage(_ sender: UIButton) {
         let alert = UIAlertController(
             title: "Select image poster",
@@ -134,6 +152,7 @@ final class FormViewController: UIViewController {
         let rating = Double(tfRating.text!) ?? 0
         movie?.rating = rating
         movie?.image = ivPoster.image?.jpegData(compressionQuality: 0.9)
+        movie?.categories = selectedCategories as NSSet?
         
         view.endEditing(true)
         do {
@@ -153,6 +172,12 @@ extension FormViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension FormViewController: CategoriesDelegate {
+    func setSelection(categories: Set<Category>) {
+        selectedCategories = categories
     }
 }
 

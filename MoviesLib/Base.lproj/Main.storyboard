@@ -210,10 +210,10 @@
                                                                     <constraint firstAttribute="width" constant="26" id="hKU-SO-xNa"/>
                                                                 </constraints>
                                                                 <connections>
-                                                                    <action selector="selectCategories:" destination="lwL-oa-SAU" eventType="touchUpInside" id="QUi-Dc-XbT"/>
+                                                                    <segue destination="R2V-PW-f37" kind="show" id="nLR-1p-tSx"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-ZH-oVx">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1p-ZH-oVx">
                                                                 <rect key="frame" x="36" y="0.0" width="299" height="23.666666666666668"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="textColor"/>
@@ -319,7 +319,6 @@
                         <outlet property="tfRating" destination="5F4-fB-FUG" id="0bF-5I-14q"/>
                         <outlet property="tfTitle" destination="GJD-C1-RUF" id="ZF4-Cw-OFh"/>
                         <outlet property="tvSummary" destination="NcA-6q-kTf" id="xQf-DO-Osb"/>
-                        <segue destination="R2V-PW-f37" kind="show" identifier="goToCategories" id="Vdk-CL-Mow"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LD1-gB-3aZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

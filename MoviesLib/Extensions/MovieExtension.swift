@@ -23,4 +23,11 @@ extension Movie {
         
         return nil
     }
+    
+    var categoriesFormatted: String? {
+        return (categories as? Set<Category>)?
+            .compactMap({ $0.name })
+            .sorted()
+            .joined(separator: " | ")
+    }
 }

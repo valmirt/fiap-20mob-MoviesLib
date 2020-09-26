@@ -35,7 +35,7 @@ final class DetailViewController: UIViewController {
     private func setupView() {
         labelTitle.text = movie.title
         labelTime.text = movie.duration
-//        labelCategories.text = movie.categories
+        labelCategories.text = movie.categoriesFormatted
         labelRating.text = movie.ratingFormatted
         tvSinopse.text = movie.summary
         ivPoster.image = movie.posterImage

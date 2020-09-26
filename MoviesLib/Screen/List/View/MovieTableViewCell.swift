@@ -19,7 +19,7 @@ final class MovieTableViewCell: UITableViewCell {
     //MARK: - Methods
     func fill(data movie: Movie) {
         labelTitle.text = movie.title
-//        labelCategories.text = movie.categories
+        labelCategories.text = movie.categoriesFormatted
         labelRating.text = movie.ratingFormatted
         ivPoster.image = movie.posterImage
     }
