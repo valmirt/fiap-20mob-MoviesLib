@@ -26,6 +26,9 @@
                                     <constraint firstAttribute="width" secondItem="RJr-ZY-all" secondAttribute="height" multiplier="1:1" id="PC5-h5-cOm"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="play"/>
+                                <connections>
+                                    <action selector="playTrailer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IZK-W0-VVd"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-Yz-w5m">
                                 <rect key="frame" x="0.0" y="264.66666666666669" width="375" height="60"/>

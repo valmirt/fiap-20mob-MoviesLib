@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import AVKit
 
 final class DetailViewController: UIViewController {
     
     // MARK: - Properties
     var movie: Movie!
+    var moviePlayer: AVPlayer?
+    var moviePlayerController: AVPlayerViewController?
+    var trailer: String = ""
     
     // MARK: - IBOutlets
     @IBOutlet weak var ivPoster: UIImageView!
@@ -29,9 +33,45 @@ final class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setupView()
+        setupTrailer()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRegisterMovie" {
+            if let detail = segue.destination as? FormViewController {
+                detail.movie = movie
+            }
+        }
     }
     
     // MARK: - Methods
+    private func setupTrailer() {
+        if let title = movie.title {
+            loadTrailer(with: title)
+        }
+    }
+    
+    private func loadTrailer(with title: String) {
+        guard let encodedTitle = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        let itunesPath = "https://itunes.apple.com/search?media=movie&entity=movie&term=\(encodedTitle)"
+        if let url = URL(string: itunesPath) {
+            URLSession.shared.dataTask(with: url) { (data, _, _) in
+                let apiResult = try! JSONDecoder().decode(ItunesResult.self, from: data!)
+                self.trailer = apiResult.results.first?.previewUrl ?? ""
+                self.prepareVideo()
+            }.resume()
+        }
+    }
+    
+    private func prepareVideo() {
+        guard let url = URL(string: trailer) else { return }
+        moviePlayer = AVPlayer(url: url)
+        DispatchQueue.main.async {
+            self.moviePlayerController = AVPlayerViewController()
+            self.moviePlayerController?.player = self.moviePlayer
+        }
+    }
+    
     private func setupView() {
         labelTitle.text = movie.title
         labelTime.text = movie.duration
@@ -42,12 +82,10 @@ final class DetailViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToRegisterMovie" {
-            if let detail = segue.destination as? FormViewController {
-                detail.movie = movie
-            }
+    @IBAction func playTrailer(_ sender: UIButton) {
+        guard let moviePlayerController = moviePlayerController else { return }
+        present(moviePlayerController, animated: true) {
+            self.moviePlayer?.play()
         }
     }
-    
 }

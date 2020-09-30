@@ -15,6 +15,7 @@
 		C366AE4B251FCA900061542C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366AE4A251FCA900061542C /* MapViewController.swift */; };
 		C366AE52251FD90A0061542C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366AE51251FD90A0061542C /* SettingsViewController.swift */; };
 		C366AE56251FDC860061542C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C366AE55251FDC860061542C /* Settings.bundle */; };
+		C38A05CB25241A7E00861E47 /* ItunesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38A05CA25241A7E00861E47 /* ItunesResult.swift */; };
 		C3CD216E251F63A900CB62A6 /* MoviesLib.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3CD216C251F63A900CB62A6 /* MoviesLib.xcdatamodeld */; };
 		C3CD2173251F83F400CB62A6 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CD2172251F83F400CB62A6 /* FormViewController.swift */; };
 		C3DD24F7251AB35000C00102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DD24F6251AB35000C00102 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		C366AE4A251FCA900061542C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C366AE51251FD90A0061542C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C366AE55251FDC860061542C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		C38A05CA25241A7E00861E47 /* ItunesResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesResult.swift; sourceTree = "<group>"; };
 		C3CD216D251F63A900CB62A6 /* MoviesLib.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoviesLib.xcdatamodel; sourceTree = "<group>"; };
 		C3CD2172251F83F400CB62A6 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		C3DD24F3251AB35000C00102 /* MoviesLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 		C3185B9A251D559300FEC8D4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				C38A05C925241A6A00861E47 /* Model */,
 				C3185B9B251D55E100FEC8D4 /* Controller */,
 			);
 			path = Detail;
@@ -191,6 +194,14 @@
 				C366AE51251FD90A0061542C /* SettingsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C38A05C925241A6A00861E47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C38A05CA25241A7E00861E47 /* ItunesResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C3CD2170251F83A500CB62A6 /* Form */ = {
@@ -317,6 +328,7 @@
 				C362E0D1251D87150093FF05 /* MovieExtension.swift in Sources */,
 				C366AE4B251FCA900061542C /* MapViewController.swift in Sources */,
 				C3DD24FB251AB35000C00102 /* DetailViewController.swift in Sources */,
+				C38A05CB25241A7E00861E47 /* ItunesResult.swift in Sources */,
 				C366AE45251FB11C0061542C /* CategoriesTableViewController.swift in Sources */,
 				C3DD24F7251AB35000C00102 /* AppDelegate.swift in Sources */,
 				C3CD2173251F83F400CB62A6 /* FormViewController.swift in Sources */,
